@@ -1,17 +1,20 @@
+var leaf = document.getElementById('leaf');
+leaf.style.display = "none";
 var head = document.getElementById('head');
 var eyes = document.getElementById('eyes');
 var mouth = document.getElementById('mouth');
+var leafArea = document.getElementById('leaf-area');
 var headArea = document.getElementById('head-area');
 var eyesArea = document.getElementById('eyes-area');
 var mouthArea = document.getElementById('mouth-area');
-var button = document.getElementById("button");
+var button = document.getElementById('button');
 var audioElement = new Audio('Punk.mp3')
 audioElement.loop = true;
 var counter = 0;
 var counter2 = 0;
 var counter3 = 0;
 var headAssets = [
-    "NONE.png",
+    "other/NONE.png",
     "head/CROWN_BTCFLOWER_BLACK.png",
     "head/CROWN_BTCFLOWER_GOLD.png",
     "head/HEADBAND_1_GOLD.png",
@@ -23,7 +26,7 @@ var headAssets = [
 ];
 
 var eyesAssets = [
-    "NONE.png",
+    "other/NONE.png",
     "eyes/BIO_EYES_GOLD.png",
     "eyes/BIO_EYES_SILVER.png",
     "eyes/BIO_GLASSES_V1_BASE_BLACK.png",
@@ -38,7 +41,7 @@ var eyesAssets = [
 ];
 
 var mouthAssets = [
-    "NONE.png",
+    "other/NONE.png",
     "mouth/CIGARETTE_1.png",
     "mouth/CIGARETTEe_1.png",
     "mouth/FLAG_GOLD.png",
@@ -50,6 +53,14 @@ var mouthAssets = [
     "mouth/ROSE_GOLD.png",
     "mouth/ROSE_SILVER.png",
 ];
+
+function toogleLeaf() {
+    if (leaf.style.display === "none") {
+        leaf.style.display = "block";
+    } else {
+        leaf.style.display = "none";
+    }
+}
 
 function changeHead() {
     counter += 1;
@@ -78,27 +89,31 @@ function changeMouth() {
     mouth.style.backgroundSize = 'cover';
 }
 
-headArea.addEventListener('click', changeHead);
-eyesArea.addEventListener('click', changeEyes);
-mouthArea.addEventListener('click', changeMouth);
+window.addEventListener('load', (event) => {
+    leafArea.addEventListener('click', toogleLeaf);
+    headArea.addEventListener('click', changeHead);
+    eyesArea.addEventListener('click', changeEyes);
+    mouthArea.addEventListener('click', changeMouth);
 
-counter -= 1;
-counter2 -= 1; 
-counter3 -= 1; 
-changeHead();
-changeEyes();
-changeMouth();
+    counter -= 1;
+    counter2 -= 1;
+    counter3 -= 1;
+    changeHead();
+    changeEyes();
+    changeMouth();
 
-window.addEventListener('click', function() {
-    audioElement.play();
+    window.addEventListener('click', function() {
+        audioElement.play();
+    });
+    console.log('Page loaded');
 });
 
 button.addEventListener("click", function() {
-	html2canvas(document.getElementById("box")).then(function (canvas) {			
+	html2canvas(document.getElementById("box")).then(function (canvas) {
         var anchorTag = document.createElement("a");
         anchorTag.download = "dominicPunk.png";
         anchorTag.href = canvas.toDataURL();
         anchorTag.target = '_blank';
         anchorTag.click();
     });
- });
+});
