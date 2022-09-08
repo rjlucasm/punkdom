@@ -1,19 +1,19 @@
-var leaf = document.getElementById('leaf');
+const leaf = document.getElementById('leaf');
 leaf.style.display = "none";
-var head = document.getElementById('head');
-var eyes = document.getElementById('eyes');
-var mouth = document.getElementById('mouth');
-var leafArea = document.getElementById('leaf-area');
-var headArea = document.getElementById('head-area');
-var eyesArea = document.getElementById('eyes-area');
-var mouthArea = document.getElementById('mouth-area');
-var button = document.getElementById('button');
-var audioElement = new Audio('Punk.mp3')
+const head = document.getElementById('head');
+const eyes = document.getElementById('eyes');
+const mouth = document.getElementById('mouth');
+const leafArea = document.getElementById('leaf-area');
+const headArea = document.getElementById('head-area');
+const eyesArea = document.getElementById('eyes-area');
+const mouthArea = document.getElementById('mouth-area');
+const button = document.getElementById('button');
+const audioElement = new Audio('Punk.mp3')
 audioElement.loop = true;
-var counter = 0;
-var counter2 = 0;
-var counter3 = 0;
-var headAssets = [
+let counter = 0;
+let counter2 = 0;
+let counter3 = 0;
+const headAssets = [
     "other/NONE.png",
     "head/CROWN_BTCFLOWER_BLACK.png",
     "head/CROWN_BTCFLOWER_GOLD.png",
@@ -23,9 +23,10 @@ var headAssets = [
     "head/POLICE_CAP_GOLD.png",
     "head/VISOR_BLACK.png",
     "head/VISOR_GOLD.png",
+    "head/BARBEDWIRES_CROWN_GOLD.png",
 ];
 
-var eyesAssets = [
+const eyesAssets = [
     "other/NONE.png",
     "eyes/BIO_EYES_GOLD.png",
     "eyes/BIO_EYES_SILVER.png",
@@ -40,7 +41,7 @@ var eyesAssets = [
     "eyes/SUNGLASSES_GOLD.png",
 ];
 
-var mouthAssets = [
+const mouthAssets = [
     "other/NONE.png",
     "mouth/CIGARETTE_1.png",
     "mouth/CIGARETTEe_1.png",
@@ -110,7 +111,7 @@ window.addEventListener('load', (event) => {
 
 button.addEventListener("click", function() {
 	html2canvas(document.getElementById("box")).then(function (canvas) {
-        var anchorTag = document.createElement("a");
+        let anchorTag = document.createElement("a");
         anchorTag.download = "dominicPunk.png";
         anchorTag.href = canvas.toDataURL();
         anchorTag.target = '_blank';
