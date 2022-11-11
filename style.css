@@ -17,6 +17,13 @@ body {
         padding-bottom: 100%;
     }
 }
+#credit a{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    color: black;
+    font-size: 12px;
+}
 #dom {
     background-image: url("dom.png");
     background-size: cover;
